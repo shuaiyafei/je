@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "warden",
+    "version": "1",
+    "background": {
+        "scripts": ["javascript/warden.js"]
+    },
+    "permissions": ["tabs"],
+    "page_action": {
+        "default_icon": "mini-black.png",
+        "default_title": "warden",
+        "default_popup": "html/index.html"
+    }
+}
