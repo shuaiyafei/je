@@ -1,0 +1,1 @@
+alert('show-image-content-size');

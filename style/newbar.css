@@ -1,0 +1,15 @@
+body {
+    margin: 0;
+    background: url(../images/warden.jpg);
+    background-size: cover;
+    background-position:  0% 0%;
+}
+p {
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    text-align: center;
+    color: #fff;
+}

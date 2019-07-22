@@ -1,14 +1,51 @@
 {
     "manifest_version": 2,
     "name": "warden",
-    "version": "1",
-    "background": {
-        "scripts": ["javascript/warden.js"]
+    "version": "1.0.0",
+    "icons": {
+        "16": "images/s-black.png",
+        "48": "images/m-black.png",
+        "128": "images/l-black.png"
     },
-    "permissions": ["tabs"],
-    "page_action": {
-        "default_icon": "mini-black.png",
-        "default_title": "warden",
-        "default_popup": "html/index.html"
-    }
+    "background": {
+        "page": "html/background.html"
+    },
+    "browser_action": {
+        "default_icon": "images/l-black.png",
+        "default_title": "这是一个示例Chrome插件",
+        "default_popup": "html/popup.html"
+    },
+    "content_scripts": [{
+            "matches": ["<all_urls>"],
+            "js": ["javascript/jquery.js", "javascript/warden.js"],
+            "css": ["style/warden.css"]
+        },
+        {
+            "matches": ["*://*/*.png", "*://*/*.jpg", "*://*/*.gif", "*://*/*.bmp"],
+            "js": ["javascript/show-image-content-size.js"]
+        }
+    ],
+    "permissions": [
+        "contextMenus",
+        "tabs",
+        "notifications",
+        "webRequest",
+        "webRequestBlocking",
+        "storage",
+        "http://*/*",
+        "https://*/*"
+    ],
+    "web_accessible_resources": ["js/inject.js"],
+    "homepage_url": "https://www.baidu.com",
+    "chrome_url_overrides": {
+        "newtab": "html/newtab.html"
+    },
+    "options_ui": {
+        "page": "html/options.html",
+        "chrome_style": true
+    },
+    "omnibox": {
+        "keyword": "go"
+    },
+    "devtools_page": "html/devtools.html"
 }
